@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 타일즈에 관련된 스키마 -->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="baseLayout"  template="/WEB-INF/views/common/layout.jsp">
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />     
+	  <put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />
+      <put-attribute name="category" value="/WEB-INF/views/common/category.jsp"/>
+      <put-attribute name="bestitem" value="/WEB-INF/views/common/bestitem.jsp" />
+       <put-attribute name="body" value="" />
+   </definition>
+   
+   <definition name="baseLayout2"  template="/WEB-INF/views/common/layout2.jsp">
+      <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />     
+	  <put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />
+      <put-attribute name="bestitem" value="/WEB-INF/views/common/bestitem.jsp" />
+       <put-attribute name="body" value="" />
+   </definition>
+    <definition name="none"  template="/WEB-INF/views/common/none.jsp">
+    	<put-attribute name="body" value="" />
+   </definition>
+
+	<definition name="home" extends="baseLayout">
+      <put-attribute name="title" value="메인페이지" />
+      <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+   </definition>
+   <definition name="test" extends="baseLayout2">
+      <put-attribute name="title" value="메인페이지" />
+      <put-attribute name="body" value="/WEB-INF/views/test.jsp" />
+   </definition>
+   
+ 	<definition name="/post/*" extends="baseLayout">
+      <put-attribute name="body" value="/WEB-INF/views/post/{1}.jsp" />
+   </definition>
+ 	<definition name="/member/*" extends="baseLayout2">
+      <put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+   </definition>
+	<definition name="/admin/*" extends="none">
+      <put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp" />
+   </definition>
+
+</tiles-definitions>
