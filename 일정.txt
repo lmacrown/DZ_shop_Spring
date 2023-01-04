@@ -1,8 +1,9 @@
 1일차 : 와이어 프레임 작성, DB 연결, 페이지 구현
 2일차 : 페이지 구현, 로그인 구현
-postView 답글 부분 지우기
-3일차
-4일차
+미구현 : postView 답글 부분 지우기
+3일차 :  fetch 기능 구현, 아이디 찾기, 아이디 삭제, 정보 수정, 회원가입, 중복체크
+미구현 : 비밀번호 이메일 보내서 초기화
+4일차 : 어드민 페이지(멤버), QnA구현, 어드민(공지사항)
 5일차
 주말1
 주말2
@@ -13,3 +14,11 @@ postView 답글 부분 지우기
 10일차
 주말3
 주말4
+
+const formToJSON = (elements) => [].reduce.call(elements, (data, element) => {
+    data[element.name] = element.value;
+    return data;
+   },
+   {}
+);
+form의 입력값을 JSON 객체로 변경하는 함수
