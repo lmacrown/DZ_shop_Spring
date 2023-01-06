@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+           "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspring.DZ_shop.mappers.AdminDAO">
+	
+	<select id="listMembers" resultType="com.myspring.DZ_shop.entity.MemberVO">
+		select
+			Member_ID, Member_PW, Member_NAME, EMAIL, DEL_YN
+			from t_shopping_member
+	</select> 
+	<update id="deleteMember">
+		update t_shopping_member
+		set DEL_YN = if((select DEL_YN from t_shopping_member 
+		where Member_Id=#{param1}) = 'Y', 'N', 'Y') 
+		where Member_ID=#{param1}
+	</update>
+	<select id="noticeAll" resultType="com.myspring.DZ_shop.entity.NoticeVO">
+		select
+			Title, Contents, Views, WriteDate
+			from t_shopping_notice
+	</select> 
+	<select id="noticeView" resultType="com.myspring.DZ_shop.entity.NoticeVO">
+		select
+			Title, Contents, Views, WriteDate
+			from t_shopping_notice
+			where Title=#{param1}
+	</select> 
+	<delete id="deleteNotice">
+		delete from t_shopping_notice where Title=#{param1}
+	</delete>
+	<update id="noticeUpdate">
+		update t_shopping_notice
+		set Contents=#{param2}
+		where Title=#{param1}
+	</update>
+	<insert id="noticeRegister">
+		insert into t_shopping_notice (Title, Contents, WriteDate)
+		values (#{param1}, #{param2}, #{param3})	
+	</insert>
+	<select id="QnAAll" resultType="com.myspring.DZ_shop.entity.QnAVO">
+		select
+			*
+			from t_shopping_qna
+	</select> 
+	<select id="QnAView" resultType="com.myspring.DZ_shop.entity.QnAVO">
+		select
+			*
+			from t_shopping_qna
+			where QnA_Title=#{param1}
+	</select> 
+</mapper>
