@@ -1,0 +1,19 @@
+org.apache.log4j.ConsoleAppender : 콘솔에 로그를 찍는 클래스
+appender 종류는 p981
+log4j.xml-<root> : 로그를 쓰기 위해 설정
+rollingFileAppender : 파일이 일정크기 이상이 되면 새로운 파일을 생성
+daliyRollingAppender : 파일을 일정시간단위로 나눔
+	
+<logger name="com.myspring.DZ_shop"> : 내가 사용하는 프로젝트 로그를 찍음
+	<level value="info" /> : 레벨은 info 까지
+</logger>
+3rdparty Loggers : 내가 사용하지 않는 라이브러리 출력
+
+
+
+
+
+
+
+
+
