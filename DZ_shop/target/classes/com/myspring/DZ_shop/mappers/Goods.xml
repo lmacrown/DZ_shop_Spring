@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+           "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspring.DZ_shop.mappers.GoodsDAO">
+
+	<select id="listGoods" resultType="com.myspring.DZ_shop.entity.GoodsVO">
+		select
+		*		
+		from t_shopping_goods
+	</select>
+	<select id="goodsView"
+		resultType="com.myspring.DZ_shop.entity.GoodsVO">
+		select
+		*
+		from t_shopping_goods
+		where GOODS_ID = #{param1}
+	</select>
+	<insert id="add_item">
+		insert into t_shopping_goods (goods_id, member_id)
+		values (#{param1}, #{param2})
+	</insert>
+</mapper>

@@ -9,9 +9,12 @@ daliyRollingAppender : 파일을 일정시간단위로 나눔
 </logger>
 3rdparty Loggers : 내가 사용하지 않는 라이브러리 출력
 
+url입력시 프로젝트명을 생략할 수 있는 방법을 선택 : 
+<c:url value='/'/>" or <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+session.setMaxInactiveInterval : 비밀번호 찾기 후 세션 종료시간을 줬을 떄 비밀번호를 찾고 시간이 지나면 세션이 안날아가는 이유
+=>세션에 접근시 시간이 초기화 됨
 
-
-
+궁금한 점 : 비동기의 필요성
 
 
 
